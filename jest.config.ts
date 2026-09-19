@@ -7,7 +7,7 @@ const jsWithBabelPreset = createJsWithBabelPreset({
 });
 
 const jestConfig: JestConfigWithTsJest = {
-  preset: 'react-native',
+  preset: '@react-native/jest-preset',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   roots: ['<rootDir>/src'],
   setupFiles: [
