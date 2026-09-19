@@ -5,6 +5,7 @@ import { Text, Pressable, Switch, StyleSheet } from 'react-native';
 import { colors } from '../../../Model/Model';
 import { translate } from '../../../Translations/TranslationModel';
 import { useDarkMode } from '../../../utils';
+import { preferencesActions } from '../../../Model/Preferences';
 
 /**
  * @function SwitchListItem
@@ -76,7 +77,7 @@ export default function SwitchListItem({
   function updateValue() {
     let updatedState = !state[item.setting];
     let newSetting = { [item.setting]: updatedState };
-    dispatch({ type: 'SET_SETTING', payload: newSetting });
+    dispatch({ type: preferencesActions.SET_SETTING, payload: newSetting });
   }
   return (
     <Pressable

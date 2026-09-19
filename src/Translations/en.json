@@ -103,6 +103,8 @@
   "Nothing Practiced Yet!": "Nothing Practiced Yet!",
   "Statistics Disclaimer 1": "Statistics count how many scales have been practiced since you downloaded the app. A scale is counted on every \"Randomize\" button press.",
   "Statistics Disclaimer 2": "Statistics are only stored locally and displayed for your personal curiosity, and are never tracked or sent anywhere.",
+  "ResetStatisticsWarn": "Are you sure you want to reset statistics?",
+  "Cancel": "Cancel",
 
   "About": "About",
   "Send Feedback": "Send Feedback",

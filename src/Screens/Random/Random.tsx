@@ -24,7 +24,10 @@ import {
   INITIAL_RANDOM_STATE,
 } from './utils/getRandomReducer';
 import { RANDOM_ACTIONS } from './enums/randomActions';
-import { StatisticsDispatchContext } from '../../Model/Statistics';
+import {
+  statisticsActions,
+  StatisticsDispatchContext,
+} from '../../Model/Statistics';
 import { STORAGE_KEYS } from '../../enums/storageKeys';
 import { loadFromStorage } from '../../utils/loadFromStorage';
 import { saveToStorage } from '../../utils/saveToStorage';
@@ -97,7 +100,7 @@ export default function Random() {
 
   const { state } = useContext(PreferencesContext);
   const dispatchStatistics = useContext(StatisticsDispatchContext);
-  const randomReducer = getRandomReducer(state, dispatchStatistics);
+  const randomReducer = getRandomReducer(state);
   const [randomState, dispatchRandomState] = useReducer(
     randomReducer,
     INITIAL_RANDOM_STATE,
@@ -169,6 +172,23 @@ export default function Random() {
     [randomState.allScalesPracticed, isScale],
   );
 
+  useEffect(
+    function updateStatistics() {
+      const DO_NOT_TRACK = [
+        translate('No Scale Selected'),
+        translate('No Arpeggio Selected'),
+      ];
+      if (!DO_NOT_TRACK.includes(randomState.currentScale)) {
+        dispatchStatistics({
+          type: isScale
+            ? statisticsActions.ADD_SCALE
+            : statisticsActions.ADD_ARPEGGIO,
+          payload: randomState.currentScale,
+        });
+      }
+    },
+    [randomState.currentScale],
+  );
   const selectionRef = useRef(null);
 
   function getNewScale() {
@@ -249,7 +269,7 @@ export default function Random() {
       </View>
       <View style={styles.mainActionButton}>
         <RandomizeButton
-          handler={getNewScale}
+          handler={() => getNewScale()}
           accessibilityValue={{ text: randomState.currentScale }}
           accessibilityHint={translate('Randomizes a new scale')}
           accessible={true}

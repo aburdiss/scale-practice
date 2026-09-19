@@ -1,5 +1,4 @@
 import { translate } from '../../../../Translations/TranslationModel';
-import { statisticsActions } from '../../../../Model/Statistics';
 import { getAllScalesFromState } from '../getAllScalesFromState';
 import { getAllArpeggiosFromState } from '../getAllArpeggiosFromState';
 import { RANDOM_ACTIONS } from '../../enums/randomActions';
@@ -62,8 +61,6 @@ export const INITIAL_RANDOM_STATE: RandomStateType = Object.freeze({
  * the application
  * @param {Object} state The User Preferences State to determine which scales
  * build
- * @param {Function} dispatchStatistics A function to dispatch to the
- * statistics context that a new scale was practiced.
  * @returns {Function} A Reducer for the Random screen of the application
  *
  * @copyright Alexander Burdiss
@@ -71,10 +68,7 @@ export const INITIAL_RANDOM_STATE: RandomStateType = Object.freeze({
  * @since 10/15/22
  * @version 1.1.0
  */
-export function getRandomReducer(
-  state: PreferencesStateType,
-  dispatchStatistics: Function,
-) {
+export function getRandomReducer(state: PreferencesStateType) {
   const isScale = state?.randomType === APP_DATA_TYPES.SCALE;
   function randomReducer(
     currentState: RandomStateType,
@@ -182,12 +176,6 @@ export function getRandomReducer(
                 random(0, currentState.scaleArray.length - 1)
               ];
           } while (newScale == currentState.currentScale);
-          dispatchStatistics({
-            type: isScale
-              ? statisticsActions.ADD_SCALE
-              : statisticsActions.ADD_ARPEGGIO,
-            payload: newScale,
-          });
           return {
             ...currentState,
             currentScale: newScale
@@ -204,12 +192,6 @@ export function getRandomReducer(
               allScalesPracticed: true,
             };
           } else {
-            dispatchStatistics({
-              type: isScale
-                ? statisticsActions.ADD_SCALE
-                : statisticsActions.ADD_ARPEGGIO,
-              payload: currentState.scaleArray[currentState.scaleArrayIndex],
-            });
             return {
               ...currentState,
               currentScale:

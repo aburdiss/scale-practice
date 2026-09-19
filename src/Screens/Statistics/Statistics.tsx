@@ -1,11 +1,16 @@
 import React, { useContext } from 'react';
-import { Text, View, SectionList, StyleSheet } from 'react-native';
-import { StatisticsContext } from '../../Model/Statistics';
+import { Text, View, SectionList, StyleSheet, Alert } from 'react-native';
+import {
+  statisticsActions,
+  StatisticsContext,
+  StatisticsDispatchContext,
+} from '../../Model/Statistics';
 import { translate } from '../../Translations/TranslationModel';
 import TextListItem from '../../Components/ListItems/TextListItem';
 import { colors } from '../../Model/Model';
 import { useDarkMode, useIdleScreen } from '../../utils';
 import { formatStatisticsDataForList } from './utils/formatStatisticsDataForList';
+import ResetButton from '../../Components/ResetButton';
 
 /**
  * @namespace Statistics
@@ -31,6 +36,7 @@ import { formatStatisticsDataForList } from './utils/formatStatisticsDataForList
  */
 export default function Statistics() {
   const statistics = useContext(StatisticsContext);
+  const dispatchStatistics = useContext(StatisticsDispatchContext);
   useIdleScreen();
 
   const DARKMODE = useDarkMode();
@@ -79,6 +85,28 @@ export default function Statistics() {
             <Text style={styles.disclaimer}>
               {translate('Statistics Disclaimer 2')}
             </Text>
+            <ResetButton
+              handler={() => {
+                Alert.alert(
+                  translate('ResetStatisticsWarn'),
+                  '',
+                  [
+                    {
+                      text: translate('Reset'),
+                      style: 'destructive',
+                      onPress: () =>
+                        dispatchStatistics({ type: statisticsActions.RESET }),
+                    },
+                    {
+                      text: translate('Cancel'),
+                      style: 'cancel',
+                      onPress: () => {},
+                    },
+                  ],
+                  { cancelable: true },
+                );
+              }}
+            />
           </View>
         }
         sections={[

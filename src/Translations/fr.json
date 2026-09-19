@@ -103,6 +103,8 @@
   "Nothing Practiced Yet!": "Rien de pratiqué pour l'instant !",
   "Statistics Disclaimer 1": "Les statistiques comptent combien de gammes ont été pratiquées depuis que vous avez téléchargé l'application. Une balance est comptée à chaque pression sur le bouton « Randomiser ».",
   "Statistics Disclaimer 2": "Les statistiques sont uniquement stockées localement et affichées pour votre curiosité personnelle, et ne sont jamais suivies ni envoyées nulle part.",
+  "ResetStatisticsWarn": "Êtes-vous sûr de vouloir réinitialiser les statistiques ?",
+  "Cancel": "Annuler",
 
   "About": "À Propos",
   "Send Feedback": "Envoyer un commentaire",
