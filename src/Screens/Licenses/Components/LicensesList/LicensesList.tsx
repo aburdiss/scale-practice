@@ -47,7 +47,7 @@ export default function LicensesList({
       style={styles.list}
       keyExtractor={({ key }) => key}
       data={licenses}
-      renderItem={({ item }) => <LicensesListItem {...item} />}
+      renderItem={({ item }) => <LicensesListItem {...item} key={item.key} />}
     />
   );
 }
