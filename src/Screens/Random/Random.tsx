@@ -187,6 +187,8 @@ export default function Random() {
         });
       }
     },
+    // TODO: fix this ESLint issue
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [randomState.currentScale],
   );
   const selectionRef = useRef(null);

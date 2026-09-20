@@ -71,7 +71,7 @@ const preferencesReducer = (
       newState = INITIAL_PREFERENCES_STATE;
       break;
     default:
-      console.log(action.type, typeof action.type)
+      console.log(action.type, typeof action.type);
       throw new Error(`Unknown Action: ${action.type}`);
   }
   saveToStorage(STORAGE_KEYS.preferences, newState);

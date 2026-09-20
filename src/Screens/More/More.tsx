@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { View, Text, SectionList, StyleSheet } from 'react-native';
-import Ionicons from "@react-native-vector-icons/ionicons/static";
+import Ionicons from '@react-native-vector-icons/ionicons/static';
 import DeviceInfo from 'react-native-device-info';
 
 import SwitchListItem from '../../Components/ListItems/SwitchListItem';
