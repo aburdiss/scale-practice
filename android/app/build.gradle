@@ -82,8 +82,8 @@ android {
         applicationId "com.scalepractice"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 10
-        versionName "2.9.0"
+        versionCode 11
+        versionName "2.9.1"
     }
     signingConfigs {
         debug {
@@ -125,6 +125,10 @@ android {
         // Disables dependency metadata when building Android App Bundles (for Google Play)
         includeInBundle = false
     }
+}
+
+configurations.all {
+    exclude group: 'com.android.installreferrer', module: 'installreferrer'
 }
 
 dependencies {
