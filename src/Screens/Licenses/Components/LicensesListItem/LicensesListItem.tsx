@@ -8,7 +8,7 @@ import {
   Image,
   StyleSheet,
 } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Ionicons from "@react-native-vector-icons/ionicons/static";
 
 import LicensesLink from '../LicensesLink';
 import { colors } from '../../../../Model/Model';

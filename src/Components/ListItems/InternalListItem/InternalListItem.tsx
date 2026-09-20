@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Ionicons from "@react-native-vector-icons/ionicons/static";
 import { useNavigation } from '@react-navigation/native';
 
 import { colors } from '../../../Model/Model';

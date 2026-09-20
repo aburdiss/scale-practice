@@ -9,7 +9,7 @@ import {
   ImageSourcePropType,
   StyleSheet,
 } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Ionicons from "@react-native-vector-icons/ionicons/static";
 
 import { colors } from '../../../Model/Model';
 import { translate } from '../../../Translations/TranslationModel';
