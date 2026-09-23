@@ -9,3 +9,5 @@
 - Create the Amazon App Store Build
   - `./gradlew assembleRelease`
   - outputs to android/app/build/outputs/apk/release/app-release.apk
+- If you build a signed APK or Bundle through Android Studio
+  - outputs to android/app/release/app-release.*
